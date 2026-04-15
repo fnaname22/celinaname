@@ -10,7 +10,7 @@ const steps = [
   {
     icon: Headphones,
     step: "02",
-    title: "Sessão Experimental",
+    title: "Sessão Inicial",
     description: "Você vivencia o estado de foco e relaxamento profundo da hipnose na prática.",
   },
   {

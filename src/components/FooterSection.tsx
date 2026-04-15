@@ -11,7 +11,7 @@ export default function FooterSection() {
             Pronta para sua <span className="text-teal italic">transformação?</span>
           </h2>
           <p className="text-primary-foreground/60 text-lg mb-8 max-w-lg mx-auto">
-            Dê o primeiro passo e agende sua sessão experimental agora.
+            Dê o primeiro passo e agende sua sessão inicial agora.
           </p>
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-cta text-lg">
             Agendar minha sessão agora

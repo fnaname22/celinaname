@@ -36,7 +36,7 @@ function VideoCard({ src }: { src: string }) {
 
   return (
     <div className="relative group mx-auto w-full max-w-[320px]">
-      <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[9/16] bg-black">
+      <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[9/16] bg-cream-dark/50">
         <video
           ref={videoRef}
           key={src}
