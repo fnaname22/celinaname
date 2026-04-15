@@ -1,20 +1,23 @@
 import { Star, Quote } from "lucide-react";
+import alessandra from "@/assets/testimonial-alessandra.png";
+import fabiana from "@/assets/testimonial-fabiana.png";
+import patricia from "@/assets/testimonial-patricia.png";
 
 const testimonials = [
   {
-    text: "Depois de anos lutando contra a ansiedade, as sessões com a Celi me transformaram. Finalmente me sinto em paz.",
-    name: "Marina S.",
-    location: "Canadá",
+    text: "Bom, não sou muito boa em escrever tudo o que penso mas tentarei o meu melhor. Vi D.Celi durante a pandemia, em uma live com a Nívea Stelmann. Adorei sua conversa, sua calma e sua doçura. Minha experiência foi fantástica! D.Celi sempre presente, simpática, atenciosa e profissional. Ela me ajudou a me colocar em lugares sólidos, onde estou até hoje.",
+    name: "Alessandra James",
+    photo: alessandra,
   },
   {
-    text: "Consegui identificar padrões inconscientes que nem sabia que existiam e finalmente destravei minha carreira.",
-    name: "Rafael M.",
-    location: "Portugal",
+    text: "Fazer terapia transformou minha vida! Com o tempo fui aprendendo a me conhecer melhor, entender meus limites e valorizar minhas conquistas. Agradeço de coração à querida Celi por toda ajuda. Sua escuta acolhedora e orientações são fundamentais para meu processo de crescimento e evolução!",
+    name: "Fabiana Marcilio",
+    photo: fabiana,
   },
   {
-    text: "Eu era cética, mas logo na primeira sessão senti uma diferença enorme. Sou uma nova pessoa hoje.",
-    name: "Juliana R.",
-    location: "EUA",
+    text: "Conhecer a Celi foi um presente! Ela me foi indicada por uma amiga e começamos a terapia on-line. Estamos em países diferentes mas é como se ela estivesse na minha frente. Celi tem me ajudado a me recuperar de um stress pós-traumático e a cuidar melhor da minha auto-estima. Super indico!",
+    name: "Patrícia Braga",
+    photo: patricia,
   },
 ];
 
@@ -34,36 +37,21 @@ export default function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-card rounded-xl p-8 shadow-sm border border-border hover:shadow-md transition-shadow relative"
+              className="bg-card rounded-xl p-8 shadow-sm border border-border hover:shadow-md transition-shadow relative flex flex-col"
             >
-              <Quote size={32} className="text-teal/20 absolute top-6 right-6" />
+              <Quote size={32} className="text-teal/10 absolute top-6 right-6" />
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <Star key={j} size={14} className="fill-gold text-gold" />
                 ))}
               </div>
-              <p className="text-foreground/80 leading-relaxed mb-6 italic">"{t.text}"</p>
-              <div className="border-t border-border pt-4">
-                <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                <p className="text-muted-foreground text-xs">{t.location}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 grid md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="bg-card rounded-xl overflow-hidden shadow-sm border border-border aspect-[9/16] max-h-80 flex items-center justify-center"
-            >
-              <div className="text-center text-muted-foreground/50">
-                <div className="w-16 h-16 rounded-full bg-muted mx-auto mb-3 flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
+              <p className="text-foreground/80 leading-relaxed mb-6 italic flex-grow text-sm">"{t.text}"</p>
+              <div className="flex items-center gap-4 border-t border-border pt-4">
+                <img src={t.photo} alt={t.name} className="w-12 h-12 rounded-full object-cover border border-teal/20" />
+                <div>
+                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
+                  <p className="text-muted-foreground text-xs">Cliente</p>
                 </div>
-                <p className="text-xs">Depoimento em vídeo</p>
               </div>
             </div>
           ))}
