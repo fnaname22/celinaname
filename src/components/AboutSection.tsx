@@ -1,4 +1,6 @@
 import celiAbout from "@/assets/celi-about.jpg";
+import celiJacket from "@/assets/celi-jacket.jpg";
+import celiOffice from "@/assets/celi-office.jpg";
 import logoAct from "@/assets/logo-act.png";
 import logoOmni from "@/assets/logo-omni.png";
 import logoArita from "@/assets/logo-arita.png";
@@ -24,16 +26,36 @@ export default function AboutSection() {
     <section id="sobre" className="section-padding bg-cream-dark">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-br from-teal/15 to-transparent rounded-2xl" />
-            <img
-              src={celiAbout}
-              alt="Celi Naname com certificações"
-              className="relative rounded-2xl w-full max-w-md mx-auto shadow-xl object-cover"
-              width={800}
-              height={600}
-              loading="lazy"
-            />
+          {/* Photo collage */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-4">
+              <div className="relative rounded-xl overflow-hidden aspect-[3/4]">
+                <img
+                  src={celiAbout}
+                  alt="Celi Naname com certificações"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative rounded-xl overflow-hidden aspect-square">
+                <img
+                  src={celiOffice}
+                  alt="Celi no consultório"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div className="pt-8">
+              <div className="relative rounded-xl overflow-hidden aspect-[3/5]">
+                <img
+                  src={celiJacket}
+                  alt="Celi Naname"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
 
           <div>
