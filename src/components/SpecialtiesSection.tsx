@@ -1,4 +1,4 @@
-import { Brain, Target, Sparkles, Heart, Eye } from "lucide-react";
+import { Brain, Target, Sparkles, Heart, Eye, Coins } from "lucide-react";
 
 const specialties = [
   {
@@ -27,6 +27,12 @@ const specialties = [
     title: "Psicanálise & Fisiognomia",
     subtitle: "Cristina Cairo · Formação Especializada",
     description: "Integra o inconsciente à leitura corporal simbólica para revelar o que a fala ancora em silêncio.",
+  },
+  {
+    icon: Coins,
+    title: "Liberdade Financeira",
+    subtitle: "Curso de Educação Financeira",
+    description: "Educação voltada ao equilíbrio financeiro e desenvolvimento de uma mentalidade próspera.",
   },
 ];
 

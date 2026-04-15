@@ -51,9 +51,11 @@ function VideoCard({ src }: { src: string }) {
         <video
           ref={videoRef}
           src={`/videos/${src}`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover bg-black/10"
           loop
+          muted
           playsInline
+          preload="metadata"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         />
