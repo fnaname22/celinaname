@@ -2,6 +2,7 @@ import { Star, Quote } from "lucide-react";
 import alessandra from "@/assets/testimonial-alessandra.png";
 import fabiana from "@/assets/testimonial-fabiana.png";
 import patricia from "@/assets/testimonial-patricia.png";
+import VideoGallery from "./VideoGallery";
 
 const testimonials = [
   {
@@ -56,6 +57,8 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
+
+        <VideoGallery />
       </div>
     </section>
   );
