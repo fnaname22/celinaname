@@ -1,7 +1,7 @@
 import celiHero from "@/assets/celi-hero.png";
 import { ArrowRight } from "lucide-react";
 
-const WHATSAPP_LINK = "https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20sess%C3%A3o";
+const WHATSAPP_LINK = "https://wa.me/5511973894624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20sess%C3%A3o";
 
 export default function HeroSection() {
   return (
