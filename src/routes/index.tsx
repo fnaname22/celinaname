@@ -6,6 +6,7 @@ import SpecialtiesSection from "@/components/SpecialtiesSection";
 import ProcessSection from "@/components/ProcessSection";
 import AboutSection from "@/components/AboutSection";
 import FaqSection from "@/components/FaqSection";
+import ClinicGallery from "@/components/ClinicGallery";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
