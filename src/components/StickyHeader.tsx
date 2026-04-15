@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logoCeli from "@/assets/logo-celi.png";
 
 const navLinks = [
   { label: "Início", href: "#hero" },
@@ -25,13 +26,13 @@ export default function StickyHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-navy/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-transparent py-5"
+          ? "bg-navy/95 backdrop-blur-md shadow-lg py-2"
+          : "bg-navy/80 backdrop-blur-sm py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" className="font-heading text-xl font-bold text-primary-foreground tracking-wide">
-          Celi <span className="text-gold">Naname</span>
+        <a href="#hero">
+          <img src={logoCeli} alt="Celi Naname Hipnoterapeuta" className="h-10" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -39,7 +40,7 @@ export default function StickyHeader() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-primary-foreground/80 hover:text-gold transition-colors font-medium"
+              className="text-sm text-primary-foreground/80 hover:text-teal-light transition-colors font-medium"
             >
               {l.label}
             </a>
@@ -59,13 +60,13 @@ export default function StickyHeader() {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-navy/98 backdrop-blur-md border-t border-gold/20 px-6 py-6 space-y-4">
+        <div className="md:hidden bg-navy/98 backdrop-blur-md border-t border-teal/20 px-6 py-6 space-y-4">
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="block text-primary-foreground/90 hover:text-gold transition-colors font-medium"
+              className="block text-primary-foreground/90 hover:text-teal-light transition-colors font-medium"
             >
               {l.label}
             </a>

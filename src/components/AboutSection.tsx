@@ -1,17 +1,21 @@
-import heroCeli from "@/assets/hero-celi.jpg";
+import celiAbout from "@/assets/celi-about.jpg";
 import logoAct from "@/assets/logo-act.png";
 import logoOmni from "@/assets/logo-omni.png";
 import logoArita from "@/assets/logo-arita.png";
 import logoCairo from "@/assets/logo-cristina-cairo.png";
 import logoMmi from "@/assets/logo-mmi.png";
+import logoIbc from "@/assets/logo-ibc.png";
+import logoUpw from "@/assets/logo-upw.png";
 import logoRobbins from "@/assets/logo-robbins.png";
 
 const certLogos = [
   { src: logoOmni, alt: "OMNI Hypnosis Training Center" },
   { src: logoAct, alt: "ACT Institute" },
+  { src: logoIbc, alt: "Instituto Brasileiro de Coaching" },
   { src: logoArita, alt: "Arita Treinamentos" },
   { src: logoCairo, alt: "Cristina Cairo" },
   { src: logoMmi, alt: "Millionaire Mind Intensive" },
+  { src: logoUpw, alt: "Tony Robbins UPW" },
   { src: logoRobbins, alt: "Tony Robbins" },
 ];
 
@@ -21,20 +25,20 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 to-transparent rounded-2xl" />
+            <div className="absolute -inset-4 bg-gradient-to-br from-teal/15 to-transparent rounded-2xl" />
             <img
-              src={heroCeli}
-              alt="Celi Naname"
-              className="relative rounded-2xl w-full max-w-md mx-auto shadow-xl"
-              width={768}
-              height={1024}
+              src={celiAbout}
+              alt="Celi Naname com certificações"
+              className="relative rounded-2xl w-full max-w-md mx-auto shadow-xl object-cover"
+              width={800}
+              height={600}
               loading="lazy"
             />
           </div>
 
           <div>
-            <div className="gold-line mb-6" />
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+            <div className="accent-line mb-6" />
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
               A força por trás da técnica
             </h2>
             <div className="space-y-4 text-foreground/75 leading-relaxed">
@@ -51,13 +55,13 @@ export default function AboutSection() {
 
             <div className="mt-10">
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4 font-semibold">Formações e Certificações</p>
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 items-center">
+              <div className="grid grid-cols-4 gap-3 items-center">
                 {certLogos.map((logo, i) => (
-                  <div key={i} className="bg-card rounded-lg p-3 flex items-center justify-center h-16 border border-border">
+                  <div key={i} className="bg-card rounded-lg p-2.5 flex items-center justify-center h-14 border border-border">
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="max-h-10 max-w-full object-contain"
+                      className="max-h-9 max-w-full object-contain"
                       loading="lazy"
                     />
                   </div>
