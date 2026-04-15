@@ -65,7 +65,7 @@ export default function AboutSection() {
             </h2>
             <div className="space-y-4 text-foreground/75 leading-relaxed">
               <p>
-                Olá, sou <strong className="text-foreground">Celi Naname</strong>. Como hipnoterapeuta ericksoniana, minha missão é guiar você por trás das dores para lembrar quem você realmente é.
+                Olá, sou <strong className="text-foreground">Celi Naname</strong>. Como hipnoterapeuta, minha missão é guiar você por trás das dores para lembrar quem você realmente é.
               </p>
               <p>
                 Com uma herança ítalo-japonesa, uno em meu atendimento a disciplina e o foco orientais ao acolhimento e empatia da minha descendência italiana.

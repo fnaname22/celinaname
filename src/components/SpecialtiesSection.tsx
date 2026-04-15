@@ -1,9 +1,9 @@
-import { Brain, Target, Sparkles, Heart } from "lucide-react";
+import { Brain, Target, Sparkles, Heart, Eye } from "lucide-react";
 
 const specialties = [
   {
     icon: Brain,
-    title: "Hipnose Ericksoniana",
+    title: "Hipnose",
     description: "Uma jornada de autoconhecimento conectando você ao seu inconsciente para cura real.",
   },
   {
@@ -22,6 +22,12 @@ const specialties = [
     title: "EFT e Barras de Access",
     description: "Técnicas complementares para alívio imediato de bloqueios emocionais.",
   },
+  {
+    icon: Eye,
+    title: "Psicanálise & Fisiognomia",
+    subtitle: "Cristina Cairo · Formação Especializada",
+    description: "Integra o inconsciente à leitura corporal simbólica para revelar o que a fala ancora em silêncio.",
+  },
 ];
 
 export default function SpecialtiesSection() {
@@ -38,7 +44,7 @@ export default function SpecialtiesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {specialties.map((s, i) => (
             <div
               key={i}
