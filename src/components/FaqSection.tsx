@@ -23,32 +23,27 @@ export default function FaqSection() {
     <section id="faq" className="section-padding bg-background">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <div className="gold-line mx-auto mb-6" />
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+          <div className="accent-line mx-auto mb-6" />
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
             Perguntas Frequentes
           </h2>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="bg-card rounded-xl border border-border overflow-hidden"
-            >
+            <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between p-6 text-left"
               >
-                <span className="font-heading text-lg font-semibold text-primary">{faq.q}</span>
+                <span className="font-heading text-lg font-semibold text-foreground">{faq.q}</span>
                 <ChevronDown
                   size={20}
-                  className={`text-gold shrink-0 ml-4 transition-transform ${open === i ? "rotate-180" : ""}`}
+                  className={`text-teal shrink-0 ml-4 transition-transform ${open === i ? "rotate-180" : ""}`}
                 />
               </button>
               {open === i && (
-                <div className="px-6 pb-6 text-foreground/70 leading-relaxed">
-                  {faq.a}
-                </div>
+                <div className="px-6 pb-6 text-foreground/70 leading-relaxed">{faq.a}</div>
               )}
             </div>
           ))}

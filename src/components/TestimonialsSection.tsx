@@ -23,13 +23,11 @@ export default function TestimonialsSection() {
     <section id="depoimentos" className="section-padding bg-cream-dark">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <div className="gold-line mx-auto mb-6" />
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+          <div className="accent-line mx-auto mb-6" />
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
             Vidas Transformadas
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            O que meus clientes dizem
-          </p>
+          <p className="text-muted-foreground text-lg">O que meus clientes dizem</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -38,15 +36,13 @@ export default function TestimonialsSection() {
               key={i}
               className="bg-card rounded-xl p-8 shadow-sm border border-border hover:shadow-md transition-shadow relative"
             >
-              <Quote size={32} className="text-gold/30 absolute top-6 right-6" />
+              <Quote size={32} className="text-teal/20 absolute top-6 right-6" />
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <Star key={j} size={14} className="fill-gold text-gold" />
                 ))}
               </div>
-              <p className="text-foreground/80 leading-relaxed mb-6 italic">
-                "{t.text}"
-              </p>
+              <p className="text-foreground/80 leading-relaxed mb-6 italic">"{t.text}"</p>
               <div className="border-t border-border pt-4">
                 <p className="font-semibold text-foreground text-sm">{t.name}</p>
                 <p className="text-muted-foreground text-xs">{t.location}</p>
