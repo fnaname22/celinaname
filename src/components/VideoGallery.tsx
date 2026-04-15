@@ -9,11 +9,19 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
+import poster from "@/assets/video-poster.png";
+
 const VIDEOS = Array.from({ length: 14 }, (_, i) => `depoimento-${i + 1}.mp4`);
 
 function VideoCard({ src }: { src: string }) {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = React.useState(false);
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, [src]);
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -39,11 +47,12 @@ function VideoCard({ src }: { src: string }) {
           loop
           muted
           playsInline
+          poster={poster}
           preload="metadata"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         >
-          <source src={`videos/${src}`} type="video/mp4" />
+          <source src={`/videos/${src}`} type="video/mp4" />
           Seu navegador não suporta este vídeo.
         </video>
 
