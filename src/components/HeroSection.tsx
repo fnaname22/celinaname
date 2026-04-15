@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div className="max-w-2xl">
           <div className="accent-line mb-8" />
           <p className="text-teal font-medium text-sm tracking-widest uppercase mb-4">
-            Hipnose
+            Hipnose Ericksoniana
           </p>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
             Liberte-se da ansiedade com a força da{" "}
