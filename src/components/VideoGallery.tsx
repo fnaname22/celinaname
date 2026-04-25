@@ -40,13 +40,13 @@ function VideoCard({ src }: { src: string }) {
       <button
         type="button"
         onClick={togglePlay}
-        className="relative block w-full rounded-2xl overflow-hidden shadow-xl aspect-[9/16] bg-cream-dark/50 cursor-pointer"
+        className="relative block w-full rounded-2xl overflow-hidden shadow-xl aspect-[4/5] bg-cream-dark/50 cursor-pointer"
       >
         <video
           ref={videoRef}
           src={`/videos/${src}.mp4`}
           poster={`/videos/thumbs/${src}.jpg`}
-          className="w-full h-full object-cover pointer-events-none"
+          className="w-full h-full object-cover object-center pointer-events-none"
           loop
           playsInline
           preload="metadata"
