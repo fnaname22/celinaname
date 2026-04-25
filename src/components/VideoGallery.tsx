@@ -36,41 +36,53 @@ function VideoCard({ src }: { src: string }) {
 
   return (
     <div className="relative group mx-auto w-full max-w-[320px]">
-      <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[9/16] bg-cream-dark/50">
+      <button
+        type="button"
+        onClick={togglePlay}
+        className="relative block w-full rounded-2xl overflow-hidden shadow-xl aspect-[9/16] bg-cream-dark/50 cursor-pointer"
+      >
         <video
           ref={videoRef}
           key={src}
           src={`/videos/${src}`}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain pointer-events-none"
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         >
           Seu navegador não suporta este vídeo.
         </video>
 
-        {/* Overlay Play Button */}
-        <div 
-          onClick={togglePlay}
-          className="absolute inset-0 z-10 flex items-center justify-center bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
-        >
-          <div className="w-16 h-16 rounded-full bg-teal/80 flex items-center justify-center text-white shadow-lg backdrop-blur-sm transform group-hover:scale-110 transition-transform">
-            {isPlaying ? <Pause size={32} /> : <Play size={32} className="ml-1" />}
+        {/* Play Button Overlay - always visible when paused */}
+        {!isPlaying && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 transition-opacity">
+            <div className="w-16 h-16 rounded-full bg-teal flex items-center justify-center text-white shadow-lg backdrop-blur-sm transform group-hover:scale-110 transition-transform">
+              <Play size={32} className="ml-1" fill="currentColor" />
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* Pause overlay - only on hover when playing */}
+        {isPlaying && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/0 hover:bg-black/20 opacity-0 hover:opacity-100 transition-all">
+            <div className="w-16 h-16 rounded-full bg-teal/80 flex items-center justify-center text-white shadow-lg backdrop-blur-sm">
+              <Pause size={32} />
+            </div>
+          </div>
+        )}
 
         {/* Small Play label if not playing */}
         {!isPlaying && (
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-pulse pointer-events-none">
-            <span className="bg-teal/90 text-white text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-bold whitespace-nowrap shadow-sm">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+            <span className="bg-teal text-white text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-bold whitespace-nowrap shadow-sm">
               Assistir Relato
             </span>
           </div>
         )}
-      </div>
+      </button>
     </div>
   );
 }
