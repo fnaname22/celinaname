@@ -60,6 +60,7 @@ export default function HeroSection() {
           className="w-full h-full object-cover object-top"
           width={600}
           height={800}
+          loading="lazy"
           decoding="async"
         />
       </div>
