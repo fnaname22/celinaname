@@ -190,7 +190,7 @@ function TerapiaAnsiedadePage() {
               >
                 <MessageCircle size={18} /> Falar no WhatsApp
               </a>
-              <Link to="/" className="btn-cta-outline inline-flex items-center justify-center">
+              <Link to="/" className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-teal text-teal font-semibold hover:bg-teal hover:text-white transition-colors">
                 Voltar para a Home
               </Link>
             </div>
