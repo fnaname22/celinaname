@@ -53,6 +53,7 @@ export default function TestimonialsSection() {
                 alt={`Depoimento de ${t.name} sobre hipnoterapia com Celi Naname`}
                 className="w-20 h-20 rounded-full object-cover border-2 border-teal/20"
                 loading="lazy"
+                decoding="async"
                 width={80}
                 height={80}
               />

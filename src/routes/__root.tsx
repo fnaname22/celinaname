@@ -48,6 +48,8 @@ export const Route = createRootRoute({
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "canonical", href: "https://celi-soul-liberator.lovable.app/" },
+      { rel: "preconnect", href: "https://cdn.gpteng.co" },
+      { rel: "dns-prefetch", href: "https://cdn.gpteng.co" },
     ],
   }),
   shellComponent: RootShell,
@@ -57,7 +59,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

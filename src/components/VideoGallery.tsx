@@ -49,7 +49,7 @@ function VideoCard({ src }: { src: string }) {
           className="w-full h-full object-cover object-center pointer-events-none"
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         >

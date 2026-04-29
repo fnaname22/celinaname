@@ -33,7 +33,14 @@ export default function StickyHeader() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" hash="hero">
-          <img src={logoCeli} alt="Celi Naname Hipnoterapeuta" className="h-10" />
+          <img
+            src={logoCeli}
+            alt="Celi Naname Hipnoterapeuta"
+            className="h-10 w-auto"
+            width={180}
+            height={40}
+            fetchPriority="high"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
