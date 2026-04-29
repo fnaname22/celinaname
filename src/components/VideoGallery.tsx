@@ -114,8 +114,9 @@ export default function VideoGallery() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-4 lg:-left-12" />
-          <CarouselNext className="hidden md:flex -right-4 lg:-right-12" />
+          <CarouselPrevious className="flex left-0 md:-left-4 lg:-left-12" />
+          <CarouselNext className="flex right-0 md:-right-4 lg:-right-12" />
+
         </Carousel>
       </div>
     </div>
