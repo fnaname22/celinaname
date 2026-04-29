@@ -51,10 +51,10 @@ export default function TestimonialsSection() {
               <img
                 src={t.photo}
                 alt={`Depoimento de ${t.name} sobre hipnoterapia com Celi Naname`}
-                className="w-12 h-12 rounded-full object-cover border border-teal/20"
+                className="w-20 h-20 rounded-full object-cover border-2 border-teal/20"
                 loading="lazy"
-                width={48}
-                height={48}
+                width={80}
+                height={80}
               />
                 <div>
                   <p className="font-semibold text-foreground text-sm">{t.name}</p>
