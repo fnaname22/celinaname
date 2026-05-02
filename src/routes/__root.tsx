@@ -33,7 +33,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Liberte sua alma da ansiedade com Hipnose Ericksoniana. Hipnoterapia, PNL e Coaching com Celi Naname em São Paulo e online para o mundo.",
+          "Liberte sua alma da ansiedade com Hipnose Ericksoniana. Atendimento especializado com Celi Naname em São Paulo e online para brasileiros no mundo todo.",
       },
       { name: "author", content: "Celi Naname" },
       { name: "robots", content: "index, follow" },
@@ -41,16 +41,70 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: "Celi Naname Hipnoterapia" },
+      { property: "og:title", content: "Celi Naname | Hipnose Ericksoniana e Libertação da Alma" },
+      {
+        property: "og:description",
+        content:
+          "Recupere o controle da sua vida através da Hipnose Ericksoniana. Atendimento presencial em São Paulo e online.",
+      },
       { property: "og:url", content: "https://celi-soul-liberator.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@hipnosecelinaname" },
+      { name: "twitter:title", content: "Celi Naname | Hipnose Ericksoniana" },
+      {
+        name: "twitter:description",
+        content: "Liberte sua alma da ansiedade com a força da Hipnose Ericksoniana.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "canonical", href: "https://celi-soul-liberator.lovable.app/" },
-      { rel: "preconnect", href: "https://cdn.gpteng.co" },
-      { rel: "dns-prefetch", href: "https://cdn.gpteng.co" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "Celi Naname - Hipnoterapia Ericksoniana",
+          "image": "https://celi-soul-liberator.lovable.app/assets/logo-celi.png",
+          "@id": "https://celi-soul-liberator.lovable.app/",
+          "url": "https://celi-soul-liberator.lovable.app/",
+          "telephone": "+5511973894624",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Paulista",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "postalCode": "01310-100",
+            "addressCountry": "BR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -23.5614,
+            "longitude": -46.6559
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "19:00"
+          },
+          "sameAs": [
+            "https://www.instagram.com/celinaname/",
+            "https://wa.me/5511973894624"
+          ]
+        })
+      }
+    ]
   }),
   shellComponent: RootShell,
   component: RootComponent,

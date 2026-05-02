@@ -8,16 +8,19 @@ const testimonials = [
   {
     text: "Bom, não sou muito boa em escrever tudo o que penso mas tentarei o meu melhor. Vi D.Celi durante a pandemia, em uma live com a Nívea Stelmann. Adorei sua conversa, sua calma e sua doçura. Minha experiência foi fantástica! D.Celi sempre presente, simpática, atenciosa e profissional. Ela me ajudou a me colocar em lugares sólidos, onde estou até hoje.",
     name: "Alessandra James",
+    location: "Jacksonville - EUA",
     photo: alessandra,
   },
   {
     text: "Fazer terapia transformou minha vida! Com o tempo fui aprendendo a me conhecer melhor, entender meus limites e valorizar minhas conquistas. Agradeço de coração à querida Celi por toda ajuda. Sua escuta acolhedora e orientações são fundamentais para meu processo de crescimento e evolução!",
     name: "Fabiana Marcilio",
+    location: "São Paulo - Brasil",
     photo: fabiana,
   },
   {
     text: "Conhecer a Celi foi um presente! Ela me foi indicada por uma amiga e começamos a terapia on-line. Estamos em países diferentes mas é como se ela estivesse na minha frente. Celi tem me ajudado a me recuperar de um stress pós-traumático e a cuidar melhor da minha auto-estima. Super indico!",
     name: "Patrícia Braga",
+    location: "Mafra - Portugal",
     photo: patricia,
   },
 ];
@@ -59,7 +62,7 @@ export default function TestimonialsSection() {
               />
                 <div>
                   <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-muted-foreground text-xs">Cliente</p>
+                  <p className="text-muted-foreground text-xs">{t.location}</p>
                 </div>
               </div>
             </div>

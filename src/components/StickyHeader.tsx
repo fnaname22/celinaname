@@ -35,7 +35,7 @@ export default function StickyHeader() {
         <Link to="/" hash="hero">
           <img
             src={logoCeli}
-            alt="Celi Naname Hipnoterapeuta"
+            alt="Celi Naname - Hipnoterapeuta Ericksoniana em São Paulo"
             className="h-10 w-auto"
             width={180}
             height={40}
