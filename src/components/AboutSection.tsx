@@ -55,13 +55,13 @@ export default function AboutSection() {
 
             <div className="mt-10">
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4 font-semibold">Formações e Certificações</p>
-              <div className="grid grid-cols-4 gap-3 items-center">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 items-center">
                 {certLogos.map((logo, i) => (
-                  <div key={i} className="bg-card rounded-lg p-2.5 flex items-center justify-center h-14 border border-border">
+                  <div key={i} className="bg-card rounded-xl p-4 flex items-center justify-center h-24 border border-border shadow-sm hover:shadow-md transition-shadow">
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="max-h-9 max-w-full object-contain"
+                      className="max-h-16 max-w-full object-contain transition-transform duration-300 hover:scale-105"
                       loading="lazy"
                     />
                   </div>
