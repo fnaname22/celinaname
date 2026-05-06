@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://celi-soul-liberator.lovable.app/sitemap.xml
+Sitemap: https://celinaname.com.br/sitemap.xml
