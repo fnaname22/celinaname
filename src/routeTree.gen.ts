@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TerapiaAnsiedadeRouteImport } from './routes/terapia-ansiedade'
 import { Route as HipnoseEricksonianaRouteImport } from './routes/hipnose-ericksoniana'
+import { Route as AgendarRouteImport } from './routes/agendar'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TerapiaAnsiedadeRoute = TerapiaAnsiedadeRouteImport.update({
@@ -23,6 +24,11 @@ const HipnoseEricksonianaRoute = HipnoseEricksonianaRouteImport.update({
   path: '/hipnose-ericksoniana',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgendarRoute = AgendarRouteImport.update({
+  id: '/agendar',
+  path: '/agendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agendar': typeof AgendarRoute
   '/hipnose-ericksoniana': typeof HipnoseEricksonianaRoute
   '/terapia-ansiedade': typeof TerapiaAnsiedadeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agendar': typeof AgendarRoute
   '/hipnose-ericksoniana': typeof HipnoseEricksonianaRoute
   '/terapia-ansiedade': typeof TerapiaAnsiedadeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agendar': typeof AgendarRoute
   '/hipnose-ericksoniana': typeof HipnoseEricksonianaRoute
   '/terapia-ansiedade': typeof TerapiaAnsiedadeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/hipnose-ericksoniana' | '/terapia-ansiedade'
+  fullPaths: '/' | '/agendar' | '/hipnose-ericksoniana' | '/terapia-ansiedade'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hipnose-ericksoniana' | '/terapia-ansiedade'
-  id: '__root__' | '/' | '/hipnose-ericksoniana' | '/terapia-ansiedade'
+  to: '/' | '/agendar' | '/hipnose-ericksoniana' | '/terapia-ansiedade'
+  id:
+    | '__root__'
+    | '/'
+    | '/agendar'
+    | '/hipnose-ericksoniana'
+    | '/terapia-ansiedade'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgendarRoute: typeof AgendarRoute
   HipnoseEricksonianaRoute: typeof HipnoseEricksonianaRoute
   TerapiaAnsiedadeRoute: typeof TerapiaAnsiedadeRoute
 }
@@ -75,6 +90,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HipnoseEricksonianaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agendar': {
+      id: '/agendar'
+      path: '/agendar'
+      fullPath: '/agendar'
+      preLoaderRoute: typeof AgendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,18 +109,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgendarRoute: AgendarRoute,
   HipnoseEricksonianaRoute: HipnoseEricksonianaRoute,
   TerapiaAnsiedadeRoute: TerapiaAnsiedadeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
