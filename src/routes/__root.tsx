@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import celiHero from "@/assets/celi-hero.png";
 
 function NotFoundComponent() {
   return (
@@ -47,7 +48,7 @@ export const Route = createRootRoute({
         content:
           "Recupere o controle da sua vida através da Hipnose Ericksoniana. Atendimento presencial em São Paulo e online.",
       },
-      { property: "og:url", content: "https://celi-soul-liberator.lovable.app/" },
+      { property: "og:url", content: "https://celinaname.com.br/" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@hipnosecelinaname" },
       { name: "twitter:title", content: "Celi Naname | Hipnose Ericksoniana" },
@@ -58,9 +59,11 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "canonical", href: "https://celi-soul-liberator.lovable.app/" },
+      { rel: "canonical", href: "https://celinaname.com.br/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" },
+      { rel: "preload", as: "image", href: celiHero },
     ],
     scripts: [
       {
@@ -69,9 +72,9 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           "name": "Celi Naname - Hipnoterapia Ericksoniana",
-          "image": "https://celi-soul-liberator.lovable.app/assets/logo-celi.png",
-          "@id": "https://celi-soul-liberator.lovable.app/",
-          "url": "https://celi-soul-liberator.lovable.app/",
+          "image": "https://celinaname.com.br/assets/logo-celi.png",
+          "@id": "https://celinaname.com.br/",
+          "url": "https://celinaname.com.br/",
           "telephone": "+5511973894624",
           "address": {
             "@type": "PostalAddress",
