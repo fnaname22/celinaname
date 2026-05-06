@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import celiAbout from "@/assets/celi-about.jpg";
+import VideoGallery from "@/components/VideoGallery";
 
 export const Route = createFileRoute("/agendar")({
   component: Agendar,
@@ -630,7 +631,19 @@ function Agendar() {
         .agendar-page .reveal.visible { opacity: 1; transform: translateY(0); }
       `}</style>
 
-      <div className="agendar-page">
+      <div className="agendar-page relative">
+        {/* Home Button */}
+        <a
+          href="/"
+          className="absolute top-6 left-6 z-50 text-white/80 hover:text-white flex items-center gap-2 text-sm tracking-widest uppercase transition-colors"
+          aria-label="Voltar para a Home"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Voltar
+        </a>
+
         {/* Float WhatsApp */}
         <a
           className="float-wa"
@@ -866,6 +879,10 @@ function Agendar() {
                 </p>
                 <span className="dep-author">Fernanda M. · Rio de Janeiro</span>
               </div>
+            </div>
+
+            <div className="reveal">
+              <VideoGallery />
             </div>
           </div>
         </section>
