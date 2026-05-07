@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TerapiabrasilRouteImport } from './routes/terapiabrasil'
 import { Route as TerapiaAnsiedadeRouteImport } from './routes/terapia-ansiedade'
 import { Route as HipnoseEricksonianaRouteImport } from './routes/hipnose-ericksoniana'
 import { Route as AgendarRouteImport } from './routes/agendar'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TerapiabrasilRoute = TerapiabrasilRouteImport.update({
+  id: '/terapiabrasil',
+  path: '/terapiabrasil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TerapiaAnsiedadeRoute = TerapiaAnsiedadeRouteImport.update({
   id: '/terapia-ansiedade',
   path: '/terapia-ansiedade',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/agendar': typeof AgendarRoute
   '/hipnose-ericksoniana': typeof HipnoseEricksonianaRoute
   '/terapia-ansiedade': typeof TerapiaAnsiedadeRoute
+  '/terapiabrasil': typeof TerapiabrasilRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agendar': typeof AgendarRoute
   '/hipnose-ericksoniana': typeof HipnoseEricksonianaRoute
   '/terapia-ansiedade': typeof TerapiaAnsiedadeRoute
+  '/terapiabrasil': typeof TerapiabrasilRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,18 +61,30 @@ export interface FileRoutesById {
   '/agendar': typeof AgendarRoute
   '/hipnose-ericksoniana': typeof HipnoseEricksonianaRoute
   '/terapia-ansiedade': typeof TerapiaAnsiedadeRoute
+  '/terapiabrasil': typeof TerapiabrasilRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/agendar' | '/hipnose-ericksoniana' | '/terapia-ansiedade'
+  fullPaths:
+    | '/'
+    | '/agendar'
+    | '/hipnose-ericksoniana'
+    | '/terapia-ansiedade'
+    | '/terapiabrasil'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/agendar' | '/hipnose-ericksoniana' | '/terapia-ansiedade'
+  to:
+    | '/'
+    | '/agendar'
+    | '/hipnose-ericksoniana'
+    | '/terapia-ansiedade'
+    | '/terapiabrasil'
   id:
     | '__root__'
     | '/'
     | '/agendar'
     | '/hipnose-ericksoniana'
     | '/terapia-ansiedade'
+    | '/terapiabrasil'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -72,10 +92,18 @@ export interface RootRouteChildren {
   AgendarRoute: typeof AgendarRoute
   HipnoseEricksonianaRoute: typeof HipnoseEricksonianaRoute
   TerapiaAnsiedadeRoute: typeof TerapiaAnsiedadeRoute
+  TerapiabrasilRoute: typeof TerapiabrasilRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terapiabrasil': {
+      id: '/terapiabrasil'
+      path: '/terapiabrasil'
+      fullPath: '/terapiabrasil'
+      preLoaderRoute: typeof TerapiabrasilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terapia-ansiedade': {
       id: '/terapia-ansiedade'
       path: '/terapia-ansiedade'
@@ -112,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   AgendarRoute: AgendarRoute,
   HipnoseEricksonianaRoute: HipnoseEricksonianaRoute,
   TerapiaAnsiedadeRoute: TerapiaAnsiedadeRoute,
+  TerapiabrasilRoute: TerapiabrasilRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
