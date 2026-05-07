@@ -135,20 +135,20 @@ function Terapiabrasil() {
         <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 min-h-[100svh] flex items-center">
           <div className="absolute inset-0 -z-10">
             <img src={hero} alt="" width={1536} height={1024} className="w-full h-full object-cover opacity-40" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
           </div>
           <div className="max-w-5xl mx-auto px-6 text-center fade-up">
             <span className="gold-divider mb-6" />
             <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">Hipnoterapia Online · Brasileiros no Exterior</p>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl leading-[1.05] mb-8 max-w-4xl mx-auto text-white">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl leading-[1.05] mb-8 max-w-4xl mx-auto">
               Você saiu do Brasil… mas as dores emocionais vieram junto?
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
               Descubra como brasileiros que vivem no exterior estão recuperando equilíbrio emocional, autoestima e paz interior através da hipnoterapia online.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#teste" className="btn-gold">Fazer o teste emocional gratuito</a>
-              <a href={CALENDLY} target="_blank" rel="noopener" className="btn-outline-gold text-white border-white hover:bg-white hover:text-black">Agendar sessão online</a>
+              <a href={CALENDLY} target="_blank" rel="noopener" className="btn-outline-gold">Agendar sessão online</a>
             </div>
           </div>
         </section>
