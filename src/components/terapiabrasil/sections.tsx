@@ -8,7 +8,7 @@ const PLAYLIST = [
   { title: "Vaga Lenta", duration: "Faixa 4", src: "/audio/vaga-lenta.mp3" },
 ];
 
-const CALENDLY = "https://calendly.com/fernandonaname";
+const CALENDLY = "https://wa.me/5511973894624?text=Ol%C3%A1+Celi%2C+vim+pelo+site+e+gostaria+de+agendar+uma+sess%C3%A3o+de+hipnoterapia.";
 
 export function SocialBar() {
   return (
