@@ -118,6 +118,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <head>
+        <HeadContent />
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18144522110"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -129,7 +130,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
             `,
           }}
         />
-        <HeadContent />
       </head>
       <body>
         {children}
