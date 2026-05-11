@@ -106,6 +106,10 @@ export const Route = createRootRoute({
             "https://wa.me/5511973894624"
           ]
         })
+      },
+      { src: "https://www.googletagmanager.com/gtag/js?id=AW-18144522110", async: true },
+      {
+        children: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18144522110');`
       }
     ]
   }),
@@ -119,17 +123,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="pt-BR">
       <head>
         <HeadContent />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18144522110"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-18144522110');
-            `,
-          }}
-        />
       </head>
       <body>
         {children}
