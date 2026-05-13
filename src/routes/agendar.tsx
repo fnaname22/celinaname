@@ -577,25 +577,60 @@ function Agendar() {
         }
 
         .agendar-page .lead-form-container {
-          max-width: 600px;
+          max-width: 900px;
           margin: 0 auto;
           background: var(--white);
-          padding: 48px 32px;
           border-radius: 24px;
           box-shadow: 0 16px 48px rgba(26,122,121,0.08);
           border: 1px solid rgba(42,172,171,0.1);
-          text-align: center;
+          display: grid;
+          grid-template-columns: 1fr 1.2fr;
+          overflow: hidden;
+          text-align: left;
         }
 
-        .agendar-page .lead-form-container h2 {
+        @media (max-width: 768px) {
+          .agendar-page .lead-form-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+          }
+        }
+
+        .agendar-page .lead-image-col {
+          background: var(--teal-light);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .agendar-page .lead-cover-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .agendar-page .lead-form-content {
+          padding: 48px 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .agendar-page .lead-form-content h2 {
           font-family: 'Cormorant Garamond', serif;
           font-size: clamp(1.8rem, 4vw, 2.4rem);
           color: var(--dark);
-          margin-bottom: 16px;
-          line-height: 1.2;
+          margin-bottom: 12px;
+          line-height: 1.15;
         }
 
-        .agendar-page .lead-form-container p {
+        .agendar-page .lead-form-content h2 em {
+          color: var(--teal);
+          font-style: italic;
+        }
+
+        .agendar-page .lead-form-content p {
           color: var(--muted);
           font-size: 0.95rem;
           margin-bottom: 32px;
@@ -1086,13 +1121,20 @@ function Agendar() {
         <section className="lead-form-section">
           <div className="container">
             <div className="lead-form-container reveal">
-              <h2>Aprofunde seu autoconhecimento</h2>
-              <p>
-                Cadastre-se para baixar gratuitamente nosso material exclusivo em PDF 
-                e entender mais sobre como a hipnoterapia pode te ajudar.
-              </p>
+              <div className="lead-image-col">
+                <img 
+                  src="/capa-ebook.jpg" 
+                  alt="Livre da Ansiedade com a Hipnose Ericksoniana" 
+                  className="lead-cover-img" 
+                />
+              </div>
+              <div className="lead-form-content">
+                <h2>Baixe o Guia:<br/><em>Livre da Ansiedade</em></h2>
+                <p>
+                  O Guia Completo para Transformar sua Mente e Recuperar o Controle da sua Vida com a Hipnose Ericksoniana.
+                </p>
 
-              {!isSubmitted ? (
+                {!isSubmitted ? (
                 <form className="lead-form" onSubmit={handleLeadSubmit}>
                   <input
                     type="text"
@@ -1146,23 +1188,23 @@ function Agendar() {
                   </button>
                 </form>
               ) : (
-                <div className="success-message">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                  </svg>
-                  <p>Obrigado pelo interesse! Seu material está pronto.</p>
-                  {/* Link para o PDF real deve ser colocado no href abaixo */}
-                  <a href="/material-exclusivo.pdf" download target="_blank" rel="noopener noreferrer">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                      <polyline points="7 10 12 15 17 10"/>
-                      <line x1="12" y1="15" x2="12" y2="3"/>
+                  <div className="success-message">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                      <polyline points="22 4 12 14.01 9 11.01"/>
                     </svg>
-                    Clique aqui para fazer o download
-                  </a>
-                </div>
-              )}
+                    <p>Obrigado pelo interesse! Seu material está pronto.</p>
+                    <a href="/material-exclusivo.pdf" download target="_blank" rel="noopener noreferrer">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                      </svg>
+                      Clique aqui para baixar
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
