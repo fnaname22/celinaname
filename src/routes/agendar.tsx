@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import celiAbout from "@/assets/celi-about.jpg";
 import VideoGallery from "@/components/VideoGallery";
+import { supabase } from "../lib/supabase";
 
 export const Route = createFileRoute("/agendar")({
   component: Agendar,
@@ -32,6 +33,47 @@ export const Route = createFileRoute("/agendar")({
 function Agendar() {
   const WHATSAPP_LINK =
     "https://wa.me/5511973894624?text=Ol%C3%A1+Celi%2C+vim+pelo+Google+e+gostaria+de+agendar+uma+sess%C3%A3o+de+hipnoterapia.";
+
+  const [leadName, setLeadName] = useState("");
+  const [leadEmail, setLeadEmail] = useState("");
+  const [leadPhone, setLeadPhone] = useState("");
+  const [leadConsent, setLeadConsent] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (leadName && leadEmail && leadPhone && leadConsent) {
+      setIsSubmitting(true);
+      
+      try {
+        const { error } = await supabase
+          .from("leads")
+          .insert([
+            {
+              nome: leadName,
+              email: leadEmail,
+              telefone: leadPhone,
+              aceita_comunicacao: leadConsent,
+            },
+          ]);
+
+        if (error) {
+          console.error("Erro ao salvar lead no Supabase:", error);
+          alert("Houve um erro ao enviar seus dados. Por favor, tente novamente.");
+          setIsSubmitting(false);
+          return;
+        }
+
+        console.log("Lead captured and saved to Supabase");
+        setIsSubmitted(true);
+      } catch (err) {
+        console.error("Erro inesperado:", err);
+        setIsSubmitting(false);
+      }
+    }
+  };
 
   useEffect(() => {
     // FAQ toggle logic
@@ -528,6 +570,159 @@ function Agendar() {
           padding-top: 16px;
         }
 
+        /* ── LEAD FORM ── */
+        .agendar-page .lead-form-section {
+          background: var(--teal-faint);
+          padding: 80px 24px;
+        }
+
+        .agendar-page .lead-form-container {
+          max-width: 600px;
+          margin: 0 auto;
+          background: var(--white);
+          padding: 48px 32px;
+          border-radius: 24px;
+          box-shadow: 0 16px 48px rgba(26,122,121,0.08);
+          border: 1px solid rgba(42,172,171,0.1);
+          text-align: center;
+        }
+
+        .agendar-page .lead-form-container h2 {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.8rem, 4vw, 2.4rem);
+          color: var(--dark);
+          margin-bottom: 16px;
+          line-height: 1.2;
+        }
+
+        .agendar-page .lead-form-container p {
+          color: var(--muted);
+          font-size: 0.95rem;
+          margin-bottom: 32px;
+          line-height: 1.6;
+        }
+
+        .agendar-page .lead-form {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .agendar-page .lead-input {
+          width: 100%;
+          padding: 16px 20px;
+          border-radius: 12px;
+          border: 1px solid rgba(42,172,171,0.2);
+          font-family: 'Jost', sans-serif;
+          font-size: 1rem;
+          color: var(--text);
+          background: var(--cream);
+          transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .agendar-page .lead-input:focus {
+          outline: none;
+          border-color: var(--teal);
+          box-shadow: 0 0 0 3px rgba(42,172,171,0.1);
+        }
+
+        .agendar-page .lead-checkbox-group {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          text-align: left;
+          margin-top: 4px;
+        }
+
+        .agendar-page .lead-checkbox {
+          appearance: none;
+          min-width: 20px;
+          height: 20px;
+          border: 1px solid rgba(42,172,171,0.4);
+          border-radius: 6px;
+          background: var(--white);
+          cursor: pointer;
+          position: relative;
+          margin-top: 2px;
+          transition: background 0.2s, border-color 0.2s;
+        }
+
+        .agendar-page .lead-checkbox:checked {
+          background: var(--teal);
+          border-color: var(--teal);
+        }
+
+        .agendar-page .lead-checkbox:checked::after {
+          content: '';
+          position: absolute;
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+
+        .agendar-page .lead-checkbox-label {
+          font-size: 0.85rem;
+          color: var(--muted);
+          line-height: 1.5;
+          cursor: pointer;
+        }
+
+        .agendar-page .btn-download {
+          background: var(--teal);
+          color: var(--white);
+          font-family: 'Jost', sans-serif;
+          font-weight: 500;
+          font-size: 1.05rem;
+          padding: 18px;
+          border-radius: 12px;
+          border: none;
+          cursor: pointer;
+          transition: background 0.25s, transform 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          margin-top: 8px;
+        }
+
+        .agendar-page .btn-download:hover {
+          background: var(--teal-dark);
+          transform: translateY(-2px);
+        }
+
+        .agendar-page .success-message {
+          padding: 32px 24px;
+          background: rgba(42,172,171,0.1);
+          color: var(--teal-dark);
+          border-radius: 16px;
+          font-weight: 500;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .agendar-page .success-message a {
+          background: var(--teal);
+          color: white;
+          padding: 14px 28px;
+          border-radius: 60px;
+          text-decoration: none;
+          font-weight: 500;
+          transition: background 0.2s;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .agendar-page .success-message a:hover {
+          background: var(--teal-dark);
+        }
+
         /* ── CTA FINAL ── */
         .agendar-page .cta-final {
           background: var(--teal);
@@ -883,6 +1078,91 @@ function Agendar() {
 
             <div className="reveal">
               <VideoGallery />
+            </div>
+          </div>
+        </section>
+
+        {/* LEAD CAPTURE FORM */}
+        <section className="lead-form-section">
+          <div className="container">
+            <div className="lead-form-container reveal">
+              <h2>Aprofunde seu autoconhecimento</h2>
+              <p>
+                Cadastre-se para baixar gratuitamente nosso material exclusivo em PDF 
+                e entender mais sobre como a hipnoterapia pode te ajudar.
+              </p>
+
+              {!isSubmitted ? (
+                <form className="lead-form" onSubmit={handleLeadSubmit}>
+                  <input
+                    type="text"
+                    className="lead-input"
+                    placeholder="Seu nome"
+                    value={leadName}
+                    onChange={(e) => setLeadName(e.target.value)}
+                    required
+                  />
+                  <input
+                    type="email"
+                    className="lead-input"
+                    placeholder="Seu melhor e-mail"
+                    value={leadEmail}
+                    onChange={(e) => setLeadEmail(e.target.value)}
+                    required
+                  />
+                  <input
+                    type="tel"
+                    className="lead-input"
+                    placeholder="Seu telefone / WhatsApp"
+                    value={leadPhone}
+                    onChange={(e) => setLeadPhone(e.target.value)}
+                    required
+                  />
+                  <label className="lead-checkbox-group">
+                    <input 
+                      type="checkbox" 
+                      className="lead-checkbox" 
+                      checked={leadConsent}
+                      onChange={(e) => setLeadConsent(e.target.checked)}
+                      required
+                    />
+                    <span className="lead-checkbox-label">
+                      Aceito receber comunicações e ofertas sobre hipnoterapia via e-mail ou WhatsApp.
+                    </span>
+                  </label>
+                  <button type="submit" className="btn-download" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      "Salvando..."
+                    ) : (
+                      <>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                          <polyline points="7 10 12 15 17 10"/>
+                          <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Baixar PDF Agora
+                      </>
+                    )}
+                  </button>
+                </form>
+              ) : (
+                <div className="success-message">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <p>Obrigado pelo interesse! Seu material está pronto.</p>
+                  {/* Link para o PDF real deve ser colocado no href abaixo */}
+                  <a href="/material-exclusivo.pdf" download target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Clique aqui para fazer o download
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </section>
