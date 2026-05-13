@@ -48,6 +48,16 @@ function Agendar() {
     const urlOrigem = params.get("origem") || params.get("utm_source");
     if (urlOrigem) {
       setOrigem(urlOrigem);
+      
+      // Se veio do Instagram, desce a tela direto pro formulário do Ebook suavemente
+      if (urlOrigem === "instagram") {
+        setTimeout(() => {
+          const formElement = document.getElementById("ebook-form");
+          if (formElement) {
+            formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 500); // 500ms para dar tempo da página renderizar
+      }
     }
   }, []);
 
@@ -1128,7 +1138,7 @@ function Agendar() {
         </section>
 
         {/* LEAD CAPTURE FORM */}
-        <section className="lead-form-section">
+        <section id="ebook-form" className="lead-form-section">
           <div className="container">
             <div className="lead-form-container reveal">
               <div className="lead-image-col">
