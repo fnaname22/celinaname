@@ -1123,7 +1123,7 @@ function Agendar() {
             <div className="lead-form-container reveal">
               <div className="lead-image-col">
                 <img 
-                  src="/capa-ebook.jpg" 
+                  src="/capa-ebook.png" 
                   alt="Livre da Ansiedade com a Hipnose Ericksoniana" 
                   className="lead-cover-img" 
                 />
