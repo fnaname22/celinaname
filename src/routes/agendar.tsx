@@ -1177,7 +1177,22 @@ function Agendar() {
                     className="lead-input"
                     placeholder="Seu telefone / WhatsApp"
                     value={leadPhone}
-                    onChange={(e) => setLeadPhone(e.target.value)}
+                    onChange={(e) => {
+                      let v = e.target.value.replace(/\D/g, '');
+                      if (v.length > 11) v = v.slice(0, 11);
+                      if (v.length > 2) {
+                        if (v.length <= 6) {
+                          v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+                        } else if (v.length <= 10) {
+                          v = `(${v.slice(0, 2)}) ${v.slice(2, 6)}-${v.slice(6)}`;
+                        } else {
+                          v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+                        }
+                      } else if (v.length > 0) {
+                        v = `(${v}`;
+                      }
+                      setLeadPhone(v);
+                    }}
                     required
                   />
                   <label className="lead-checkbox-group">
