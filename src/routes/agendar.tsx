@@ -39,8 +39,17 @@ function Agendar() {
   const [leadPhone, setLeadPhone] = useState("");
   const [leadConsent, setLeadConsent] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [origem, setOrigem] = useState("organico");
+
+  useEffect(() => {
+    // Tenta pegar a origem pela URL (ex: ?origem=instagram ou ?utm_source=instagram)
+    const params = new URLSearchParams(window.location.search);
+    const urlOrigem = params.get("origem") || params.get("utm_source");
+    if (urlOrigem) {
+      setOrigem(urlOrigem);
+    }
+  }, []);
 
   const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,6 +65,7 @@ function Agendar() {
               email: leadEmail,
               telefone: leadPhone,
               aceita_comunicacao: leadConsent,
+              origem: origem,
             },
           ]);
 
